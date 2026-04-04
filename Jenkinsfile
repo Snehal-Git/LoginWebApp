@@ -24,6 +24,7 @@ pipeline{
 				Date=$(date +"%Y%m%d-%H%M%S")
 				mv /var/lib/jenkins/workspace/Assignment-15/target/LoginWebApp.war LoginWebApp-$Date.war
 				aws s3 cp LoginWebApp-$Date.war s3://snehal-assignment-15
+				aws s3 cp s3://snehal-assignment-15/LoginWebApp-$Date.war /mnt/servers/apache-tomcat-11.0.20/webapps/
 				'''
 			}
 		}
