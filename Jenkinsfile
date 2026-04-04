@@ -14,7 +14,7 @@ pipeline{
 		stage("Create s3"){
 			steps{
 				sh'''
-				aws s3 mb s3://snehal-assignment-15
+				aws s3 mb s3://snehal-assignment-15 2>/dev/null || true
 				'''
 			}
 		}
