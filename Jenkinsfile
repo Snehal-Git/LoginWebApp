@@ -21,7 +21,9 @@ pipeline{
 		stage("Copy to s3"){
 			steps{
 				sh '''
-				aws s3 cp /var/lib/jenkins/workspace/Assignment-15/target/LoginWebApp.war s3://snehal-assignment-15/
+				Date=$(date +"%Y%m%d-%H%M%S")
+				mv /var/lib/jenkins/workspace/Assignment-15/target/LoginWebApp.war LoginWebApp-$Date.war
+				aws s3 cp LoginWebApp-$Date.war s3://snehal-assignment-15
 				'''
 			}
 		}
