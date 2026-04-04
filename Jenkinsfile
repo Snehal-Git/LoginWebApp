@@ -6,7 +6,7 @@ pipeline{
 		stage("Build war"){
 			steps{
 				sh'''
-				mvn clean install
+				sudo mvn clean install
 				'''
 			}
 		}
