@@ -17,7 +17,7 @@ pipeline{
 		stage("Deploy to slave"){
 			steps{
 				sh '''
-				echo "hi"
+				cp /mnt/jenkins-slave/workspace/Assignment-20/target/LoginWebApp.war /mnt/servers/apache-tomcat-11.0.21/webapps/
 				'''
 			}
 		}
