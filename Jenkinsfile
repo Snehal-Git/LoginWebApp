@@ -1,7 +1,7 @@
 
 pipeline{
 	agent{
-		label "built-in"
+		label "Slave-1"
 	}
 	tools{
 		maven 'apache-maven-3.9.14'
@@ -14,25 +14,12 @@ pipeline{
 				'''
 			}
 		}
-		stage("Deploy to EC2"){
-			steps{
-				sh '''
-				aws s3 cp /var/lib/jenkins/workspace/Assignment-19.b/target/LoginWebApp.war s3://snehal-assignment-19.b
-				'''
-			}
-		}
 		stage("Deploy to slave"){
-			agent{
-				label{
-					label "Slave-1"
-				}
-			}
 			steps{
 				sh '''
-				aws s3 cp s3://snehal-assignment-19.b/LoginWebApp.war /mnt/servers/apache-tomcat-11.0.21/webapps/
+				echo "hi"
 				'''
 			}
 		}
-
 	}
 }
