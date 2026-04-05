@@ -17,7 +17,7 @@ pipeline{
 		stage("Deploy to EC2"){
 			agent{
 				label{
-					label "Slave-1"
+					label "built-in"
 				}
 			}
 			steps{
