@@ -16,11 +16,13 @@ pipeline{
 		}
 		stage("Deploy on Slave"){
 			agent{
-				label "Slave-1"
+				label{
+					label "Slave-1"
+				}
 			}
 			steps{
 				sh '''
-				scp /var/lib/jenkins/workspace/Assignment-19.a/target/LoginWebApp.war ec2-user@172.31.35.32:/mnt/servers/apache-tomcat-11.0.21/webapps/
+				scp /var/lib/jenkins/workspace/Assignment-16/target/LoginWebApp.war ec2-user@172.31.35.32:/mnt/servers/apache-tomcat-11.0.21/webapps/
 				'''
 			}
 		}
