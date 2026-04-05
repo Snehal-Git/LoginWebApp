@@ -15,11 +15,6 @@ pipeline{
 			}
 		}
 		stage("Deploy to EC2"){
-			agent{
-				label{
-					label "Slave-1"
-				}
-			}
 			steps{
 				sh '''
 				scp /var/lib/jenkins/workspace/Assignment-19.a/target/LoginWebApp.war ec2-user@172.31.35.32:/mnt/servers/apache-tomcat-11.0.21/webapps/
