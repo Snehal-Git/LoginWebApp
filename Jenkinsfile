@@ -13,5 +13,10 @@ pipeline{
 				'''
 			}
 		}
+		stage("Deploy to EC2"){
+			steps{
+				scp /var/lib/jenkins/workspace/Assignment-16/target/LoginWebApp.war ec2-user@:/root/servers/apache-tomcat-11.0.21/webapps
+			}
+		}
 	}
 }
