@@ -17,13 +17,12 @@ pipeline{
 		stage("Deploy to EC2"){
 			agent{
 				label{
-					label "Slave-1"
-					customWorkspace "/mnt/jenkins-slave"
+					label "built-in"
 				}
 			}
 			steps{
 				sh '''
-				scp /var/lib/jenkins/workspace/Assignment-16/target/LoginWebApp.war ec2-user@172.31.35.32:/mnt/servers/apache-tomcat-11.0.21/webapps/
+				scp /var/lib/jenkins/workspace/Assignment-19.a/target/LoginWebApp.war ec2-user@172.31.35.32:/mnt/servers/apache-tomcat-11.0.21/webapps/
 				'''
 			}
 		}
