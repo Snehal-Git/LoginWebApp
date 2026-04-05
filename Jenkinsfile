@@ -17,7 +17,8 @@ pipeline{
 		stage("Deploy to EC2"){
 			agent{
 				label{
-					label "built-in"
+					label "Slave-1"
+					customWorkspace "/mnt/jenkins-slave"
 				}
 			}
 			steps{
