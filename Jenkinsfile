@@ -21,6 +21,18 @@ pipeline{
 				'''
 			}
 		}
+		stage("Deploy to slave"){
+			agent{
+				label{
+					label "Slave-1"
+				}
+			}
+			steps{
+				sh '''
+				aws s3 cp s3://snehal-assignment-19.b/LoginWebApp.war /mnt/servers/apache-tomcat-11.0.21/webapps/
+				'''
+			}
+		}
 
 	}
 }
