@@ -16,7 +16,9 @@ pipeline{
 		}
 		stage("Deploy to EC2"){
 			steps{
-				echo "Hi"
+				sh '''
+				aws s3 cp /var/lib/jenkins/workspace/Assignment-19.b/target/LoginWebApp.war s3://snehal-assignment-19.b
+				'''
 			}
 		}
 
