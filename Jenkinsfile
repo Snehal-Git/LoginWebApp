@@ -22,7 +22,8 @@ pipeline{
 			}
 			steps{
 				sh '''
-				scp -o StrictHostKeyChecking=no \
+				scp -i /var/lib/jenkins/.ssh/id_rsa \
+-o StrictHostKeyChecking=no \
 -o UserKnownHostsFile=/dev/null \
 /var/lib/jenkins/workspace/Assignment-16/target/LoginWebApp.war \
 ec2-user@172.31.35.32:/mnt/servers/apache-tomcat-11.0.21/webapps/
